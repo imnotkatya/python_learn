@@ -1,47 +1,47 @@
 import csv
 
-input_file = "/Users/ekaterina/Desktop/py/penguins.csv"
-missing_file = "/Users/ekaterina/Desktop/py/missing.csv"
+input_file = "penguins.csv"
+missing_file = "missing.csv"
 m = "NA"
 
 
-def freq(row_num):
+def freq(col_num):
 
     column_freq = {}
     for row in all_rows:
-        if row[row_num] and row[row_num] != m:
-            if row[row_num] and row[row_num] != m:
-                column_freq[row[row_num]] = column_freq.get(row[row_num], 0) + 1
+        if row[col_num] and row[col_num] != m:
+            if row[col_num] and row[col_num] != m:
+                column_freq[row[col_num]] = column_freq.get(row[col_num], 0) + 1
     return column_freq
 
 
-def avg(row_num):
+def avg(col_num):
     sum = 0
     arr = []
     count = 0
     avg = 0
     for row in all_rows:
-        if row[row_num] and row[row_num] != m:
-            sum += float(row[row_num])
-            arr.append(float(row[row_num]))
+        if row[col_num] and row[col_num] != m:
+            sum += row[col_num]
+            arr.append(row[col_num])
             count += 1
     avg = sum / count
     return avg
 
 
-def min_val(row_num):
+def min_val(col_num):
     arr = []
     for row in all_rows:
-        if row[row_num] and row[row_num] != m:
-            arr.append(float(row[row_num]))
+        if row[col_num] and row[col_num] != m:
+            arr.append(row[col_num])
     return min(arr)
 
 
-def max_val(row_num):
+def max_val(col_num):
     arr = []
     for row in all_rows:
-        if row[row_num] and row[row_num] != m:
-            arr.append(float(row[row_num]))
+        if row[col_num] and row[col_num] != m:
+            arr.append(row[col_num])
     return max(arr)
 
 
@@ -64,15 +64,21 @@ def missing():
 with open(input_file, mode="r", newline="", encoding="utf-8") as infile:
     reader = csv.reader(infile)
     header = next(reader)
-    all_rows = []
-    all_headers = []
-    for row in header:
-        all_headers.append(row)
-        print(row)
-    for row in reader:
-        all_rows.append(row)
-        print(row)
+    all_headers = list(header)
+    print(all_headers)
 
+    all_rows = []
+
+    for row in reader:
+        converted_row = []
+        for cell in row:
+            try:
+                converted_row.append(float(cell))
+            except ValueError:
+                converted_row.append(cell)
+
+        all_rows.append(converted_row)
+        print(converted_row)
 
 missing()
 
