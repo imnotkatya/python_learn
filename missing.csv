@@ -1,0 +1,12 @@
+species,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex,year
+Adelie,Torgersen,NA,NA,NA,NA,NA,2007
+Adelie,Torgersen,34.1,18.1,193,3475,NA,2007
+Adelie,Torgersen,42,20.2,190,4250,NA,2007
+Adelie,Torgersen,37.8,17.1,186,3300,NA,2007
+Adelie,Torgersen,37.8,17.3,180,3700,NA,2007
+Adelie,Dream,37.5,18.9,179,2975,NA,2007
+Gentoo,Biscoe,44.5,14.3,216,4100,NA,2007
+Gentoo,Biscoe,46.2,14.4,214,4650,NA,2008
+Gentoo,Biscoe,47.3,13.8,216,4725,NA,2009
+Gentoo,Biscoe,44.5,15.7,217,4875,NA,2009
+Gentoo,Biscoe,NA,NA,NA,NA,NA,2009
