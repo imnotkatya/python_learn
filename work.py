@@ -8,11 +8,14 @@ m = "NA"
 def freq(col_num):
 
     column_freq = {}
+    missing_rows_count = 0
     for row in all_rows:
         if row[col_num] and row[col_num] != m:
-            if row[col_num] and row[col_num] != m:
-                column_freq[row[col_num]] = column_freq.get(row[col_num], 0) + 1
-    return column_freq
+            column_freq[row[col_num]] = column_freq.get(row[col_num], 0) + 1
+        else:
+            missing_rows_count += 1
+
+    return column_freq, missing_rows_count
 
 
 def avg(col_num):
@@ -83,10 +86,19 @@ with open(input_file, mode="r", newline="", encoding="utf-8") as infile:
 missing()
 
 # print
-print("species_freq", freq(0))
-print("island_freq", freq(1))
-print("year_freq", freq(7))
-print("sex_freq", freq(6))
+print("species_freq", freq(0)[0])
+print("species_freq missing", freq(0)[1])
+
+print("island_freq", freq(1)[0])
+print("island_freq missing", freq(1)[1])
+
+print("year_freq", freq(7)[0])
+print("year_freq missing", freq(7)[1])
+
+
+print("sex_freq", freq(6)[0])
+print("sex_freq missing", freq(6)[1])
+
 print("bill_length_avg", avg(2))
 print("bill_depth_avg", avg(3))
 print("flipper_length_avg", avg(4))
